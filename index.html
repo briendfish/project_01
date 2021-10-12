@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>http请求消息和响应消息</title>
+    <script src="./jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btnGet">GET请求</button>
+    <button id="btnPost">POST请求</button>
+
+    <script>
+        $(function() {
+            $('#btnGet').on('click', function() {
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    data: {
+                        bookname: '西游记'
+                    },
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+            $('#btnPost').on('click', function() {
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: {
+                        bookname: '七宗罪',
+                        author: '史蒂芬·蹄子',
+                        publisher: '霍格沃兹麻瓜图书出版社'
+                    },
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
